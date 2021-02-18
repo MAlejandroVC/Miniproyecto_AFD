@@ -3,19 +3,10 @@ public class AFD {
     public int inicial;
     public int[] finales;
     public int[] matriz;
+    public String[] alfabeto;
 
-    public void setInicial(int inicial) {
-        this.inicial = inicial;
-        this.actual = inicial;
+    public void cambiarEstado(String simbolo){
+
     }
-
-    public void setFinales(int[] finales) {
-        this.finales = finales;
-    }
-
-    public void setMatriz(int[] matriz) {
-        this.matriz = matriz;
-    }
-
 
 }
