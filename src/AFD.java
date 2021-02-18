@@ -21,7 +21,6 @@ public class AFD {
                 columna = i;
                 break;
             }
-            System.out.println("ERROR. No se encontró símbolo en alfabeto");
         }
         //mover segun matriz
         this.actual = this.matriz[this.actual][columna];
