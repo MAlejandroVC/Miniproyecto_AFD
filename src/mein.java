@@ -3,3 +3,5 @@ public class mein {
 
     }
 }
+
+//matrix[row][col]
