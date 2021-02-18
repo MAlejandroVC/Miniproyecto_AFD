@@ -2,7 +2,7 @@ public class AFD {
     public int actual;
     public int inicial;
     public int[] finales;
-    public int[][] matriz;
+    public int[][] matriz; //matrix[row][col]
     public String[] alfabeto;
 
     public AFD(int inicial, int[] finales, int[][] matriz, String[] alfabeto) {

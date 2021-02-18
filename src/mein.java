@@ -23,15 +23,18 @@ public class mein {
 
         //crear AFD
         AFD automata = new AFD(inicial, finales, matriz, alfabeto);
-        String mapa = "";
+        StringBuilder mapa = new StringBuilder();
         for(int i=0; i<cadena.length(); i++){
-            mapa += automata.actual+"/";
+            mapa.append(automata.actual).append("/");
             automata.cambiarEstado(""+cadena.charAt(i));
         }
+        mapa.append(automata.actual);
         boolean aceptado = false;
-        for(int i=0; i<finales.length; i++)
-            if (automata.actual == finales[i])
+        for (int fin : finales)
+            if (automata.actual == fin) {
                 aceptado = true;
+                break;
+            }
 
         //mostrar resultados
         JOptionPane.showMessageDialog(null,
@@ -41,5 +44,3 @@ public class mein {
                 "Imprechonante",JOptionPane.INFORMATION_MESSAGE);
     }
 }
-
-//matrix[row][col]
