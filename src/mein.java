@@ -1,14 +1,14 @@
 import javax.swing.*;
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class mein {
     public static void main(String[] args) throws FileNotFoundException {
 
-        String cadena = "";
+        String cadena;
         String[] alfabeto;
-        String inicialStr = "";
+        String inicialStr;
         String[] finalesStr;
         String[][] matrizStr = new String[1_000][];
 
