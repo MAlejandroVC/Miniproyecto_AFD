@@ -1,13 +1,44 @@
 import javax.swing.*;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
 
 public class mein {
-    public static void main(String[] args) {
-        //inputs temporales... debe conseguir esto de un .txt
-        String cadena = JOptionPane.showInputDialog("Ingresa la cadena inicial");
-        String[] alfabeto = {"a","b"};
-        String inicialStr = "0";
-        String[] finalesStr = {"1","3"};
-        String[][] matrizStr = {{"3","1"},{"2","1"},{"2","1"},{"3","4"},{"3","4"}};
+    public static void main(String[] args) throws FileNotFoundException {
+
+        String cadena = "";
+        String[] alfabeto;
+        String inicialStr = "";
+        String[] finalesStr;
+        String[][] matrizStr = new String[1_000][];
+
+        //input por txt
+        File entrada = new File("AFD.txt");
+        Scanner myReader = new Scanner(entrada);
+        String line;
+            //cadena
+        line = myReader.nextLine();
+        cadena = line;
+            //alfabeto
+        line = myReader.nextLine();
+        line = line.substring(0,line.length()-1);
+        alfabeto = line.split(";");
+            //inicialSTR
+        line = myReader.nextLine();
+        inicialStr = line;
+            //finalesSTR
+        line = myReader.nextLine();
+        line = line.substring(0,line.length()-1);
+        finalesStr = line.split(";");
+            //matrizSTR
+        int k = 0;
+        while (myReader.hasNextLine()) {
+            line = myReader.nextLine();
+            line = line.substring(0,line.length()-1);
+            matrizStr[k] = line.split(";");
+            k++;
+        }
+        myReader.close();
 
         //convertir Str a Int
         int inicial = Integer.parseInt(inicialStr);
@@ -16,8 +47,8 @@ public class mein {
         for(int i=0; i<finalesStr.length; i++)
             finales[i] = Integer.parseInt(finalesStr[i]);
 
-        int[][] matriz = new int[matrizStr.length][alfabeto.length];
-        for(int i=0; i<matrizStr.length; i++)
+        int[][] matriz = new int[k][alfabeto.length];
+        for(int i=0; i<k; i++)
             for (int j = 0; j < alfabeto.length; j++)
                 matriz[i][j] = Integer.parseInt(matrizStr[i][j]);
 
